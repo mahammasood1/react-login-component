@@ -36,7 +36,8 @@ class LoginForm extends React.Component {
                                 onChange={this.handleChange(field.name)}
                                 id={field.name}
                                 placeholder={field.placeholder}
-                                name={field.name} />
+                                name={field.name} 
+                            />
                         </div>
                     ))
                     }

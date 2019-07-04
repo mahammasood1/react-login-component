@@ -1,14 +1,19 @@
-{
-    "email": {
-      "label": "Username: ",
-      "name": "Username ",
+{ 
+    "label": "Login Form",
+    "classes": "" ,
+    "fields": [
+    {
+      "label": "Email: ",
+      "name": "email",
       "type":"Email",
       "placeholder": "Enter Email..."
     },
-    "password": {
+
+    {
       "label": "Password: ",
-      "name": "Password",
+      "name": "password",
       "type": "Password",
       "placeholder": "Enter Password..."
     }
-  }
+  ]
+}

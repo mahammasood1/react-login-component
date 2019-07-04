@@ -5,8 +5,6 @@ import LoginForm from './components/LoginForm';
 import config from './fields.json'
 class App extends React.Component {
 
-
-
   render() {
 
     return (

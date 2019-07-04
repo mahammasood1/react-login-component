@@ -1,65 +1,51 @@
-import React  from 'react';
+import React from 'react';
 class LoginForm extends React.Component {
 
-  constructor(props){
-    super(props);
-    this.state = {
-      email: '',
-      pass: '',
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            password: '',
+        };
     }
 
-    this.handleEmailChange = this.handleEmailChange.bind(this);
-    this.handlePassChange = this.handlePassChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
+    handleSubmit = (e) => {
 
-  handleSubmit(e) {
+        alert(this.state.email);
+        alert(this.state.password);
+        e.preventDefault();
+    }
 
-    alert( this.state.email )
-    alert( this.state.pass )
-    e.preventDefault();
-  }
+    handleChange = (field) => (event) => {
+        this.setState({
+            [field]: event.target.value,
+        })
+    }
 
-  handleEmailChange(e) {
-    this.setState({
-      email: e.target.value,
-    })
-  }
+    render() {
+        return (
+            <div className="App">
+                <h3>{this.props.fields.label}</h3>
+                <form onSubmit={this.handleSubmit}>
+                    {this.props.fields.fields.map(field => (
+                        <div>
+                            <label for={field.name}>{field.label}</label>
+                            <input
+                                type={field.type}
+                                value={this.state[field.name]}
+                                onChange={this.handleChange(field.name)}
+                                id={field.name}
+                                placeholder={field.placeholder}
+                                name={field.name} />
+                        </div>
+                    ))
+                    }
+                    <input type="submit" />
+                </form>
+            </div>
+        );
+    }
 
-  handlePassChange(e) {
-    this.setState({
-      pass: e.target.value
-    })
-  }
-
-  render() {
-    return (
-      <div className="App">
-        <form onSubmit={this.handleSubmit}>
-          <label for="email">{this.props.fields.email.label}</label>
-          <input 
-            type={this.props.fields.email.type}
-            value={this.state.email} 
-            onChange={this.handleEmailChange}
-            id="email" 
-            placeholder={this.props.fields.email.placeholder} 
-            name={this.props.fields.email.name}/>
-        
-          <label for="pass">{this.props.fields.password.label}</label>
-          <input 
-            type="password" 
-            value={this.state.pass}
-            onChange={this.handlePassChange}
-            id="pass" 
-            placeholder={this.props.fields.password.placeholder}
-            name={this.props.fields.password.name}/>
-
-          <input type="submit"/>
-        </form>
-      </div>
-    );
-  }
-  
 }
 
 export default LoginForm;

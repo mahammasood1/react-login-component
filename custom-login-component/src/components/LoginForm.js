@@ -1,4 +1,6 @@
 import React from 'react';
+import {LoginStyle} from './LoginStyle.css';
+
 class LoginForm extends React.Component {
 
     constructor(props) {
@@ -24,24 +26,42 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="App">
-                <h3>{this.props.fields.label}</h3>
+            <div>
+                
                 <form onSubmit={this.handleSubmit}>
-                    {this.props.fields.fields.map(field => (
+                    <h3>{this.props.fields.label}</h3>
+                    {this.props.fields.fields.map(field =>(
                         <div>
-                            <label for={field.name}>{field.label}</label>
-                            <input
+                            {/* <label for={field.name}>{field.label}</label> */}
+                           
+                            <input class="input-con"
                                 type={field.type}
                                 value={this.state[field.name]}
                                 onChange={this.handleChange(field.name)}
                                 id={field.name}
                                 placeholder={field.placeholder}
                                 name={field.name} 
+
                             />
-                        </div>
+                       
+                   
+                    </div>
                     ))
-                    }
-                    <input type="submit" />
+                }
+
+					<div class="container-submit">
+					
+                         <input type="submit"/>
+					</div>
+                        
+					
+                                
+                            
+                        
+                    
+                   
+
+                    
                 </form>
             </div>
         );

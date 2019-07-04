@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 class LoginForm extends React.Component {
 
     constructor(props) {
@@ -24,7 +25,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div className="App">
+            <div styles={this.props.fields.styles} className={`LoginStyle ${this.props.fields.classes}`}>
                 <h3>{this.props.fields.label}</h3>
                 <form onSubmit={this.handleSubmit}>
                     {this.props.fields.fields.map(field => (

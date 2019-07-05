@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css'
-import {LoginStyle} from './LoginStyle.css';
-
+import './base.css';
+import './custom.css';
 class LoginForm extends React.Component {
 
     constructor(props) {
@@ -27,47 +27,29 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div styles={this.props.fields.styles} className={`LoginStyle ${this.props.fields.classes.root}`}>
-                
+            <div>
                 <form onSubmit={this.handleSubmit}>
-                    <h3>{this.props.fields.label}</h3>
+                    <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
                     {this.props.fields.fields.map(field =>(
                         <div>
-                            {/* <label for={field.name}>{field.label}</label> */}
-                           
-                            <input className={`LoginStyle ${this.props.fields.classes}`}
+                           <input class="input-con" 
                                 type={field.type}
                                 value={this.state[field.name]}
                                 onChange={this.handleChange(field.name)}
                                 id={field.name}
                                 placeholder={field.placeholder}
                                 name={field.name} 
-
                             />
-                       
-                   
-                    </div>
+                        </div>
                     ))
-                }
-
-					<div class="container-submit">
-					
-                         <input type="submit"/>
-					</div>
-                        
-					
-                                
-                            
-                        
-                    
-                   
-
-                    
-                </form>
+                    }
+                    <div class="container-submit" className={this.props.fields.classes.button}>
+					<input type="submit"/>  
+                    </div>                     
+				</form>
             </div>
         );
     }
-
 }
 
 export default LoginForm;

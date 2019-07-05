@@ -27,7 +27,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div styles={this.props.fields.styles} className={`LoginStyle ${this.props.fields.classes}`}>
+            <div styles={this.props.fields.styles} className={`LoginStyle ${this.props.fields.classes.root}`}>
                 
                 <form onSubmit={this.handleSubmit}>
                     <h3>{this.props.fields.label}</h3>
@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
                         <div>
                             {/* <label for={field.name}>{field.label}</label> */}
                            
-                            <input class="input-con"
+                            <input className={`LoginStyle ${this.props.fields.classes}`}
                                 type={field.type}
                                 value={this.state[field.name]}
                                 onChange={this.handleChange(field.name)}

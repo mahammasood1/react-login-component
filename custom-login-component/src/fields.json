@@ -2,6 +2,7 @@
     "label": "Login",
     "classes": {
       "container": "container",
+      "background": "background",
       "title": "title",
       "input": "input",
       "button": "btn",

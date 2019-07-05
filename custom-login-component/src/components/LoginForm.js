@@ -26,19 +26,19 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div class="login-form">
+            <div class={`login-form ${this.props.fields.classes.container} `} >
                 <form onSubmit={this.handleSubmit}>
-                    <h3 class="text-center" className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
+                    <h3 class={`text-center ${this.props.fields.classes.title}`}>{this.props.fields.label}</h3>
                     {this.props.fields.fields.map(field =>(
                         <div class="form-group">
-                           <input class="form-control" required="required"
-                                type={field.type}
-                                value={this.state[field.name]}
-                                onChange={this.handleChange(field.name)}
-                                id={field.name}
-                                placeholder={field.placeholder}
-                                name={field.name} 
-                            />
+                            <input class="form-control" required="required"
+                                    type={field.type}
+                                    value={this.state[field.name]}
+                                    onChange={this.handleChange(field.name)}
+                                    id={field.name}
+                                    placeholder={field.placeholder}
+                                    name={field.name} 
+                                />
                         </div>
                     ))
                     }               
@@ -46,7 +46,7 @@ class LoginForm extends React.Component {
                     <br/>
                     <div class="clearfix">
                         <label class="pull-left checkbox-inline"><input type="checkbox"/> Remember me</label>
-                        <a href="#" class="pull-right">Forgot Password?</a>
+                        <a href="#bla" class="pull-right">Forgot Password?</a>
                     </div>                              
 				</form>
             </div>

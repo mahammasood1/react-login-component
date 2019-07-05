@@ -1,6 +1,8 @@
 { 
     "label": "Login Form",
-    "classes": "",
+    "classes": {
+      "input-con" : "input"
+    },
     "styles": {
       "background-color": "red"
     },

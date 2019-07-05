@@ -5,3 +5,22 @@
 .new {
   color: red;
 }
+
+.input {
+     
+  position: relative;
+  width: 100%;
+  z-index: 1;
+  font-family: Raleway-SemiBold;
+  font-size: 16px;
+  color: #686868;
+  display: block;
+  width: 50%;
+  background: #e6e6e6;
+  height: 1000px;
+  border-radius: 3px;
+  padding: 0 30px 0 65px;
+  margin-left:60px;
+  margin-bottom: 40px;
+
+}

@@ -1,8 +1,10 @@
 { 
     "label": "Login Form",
-    "classes": "check new",
-    "styles": {
-      "background-color": "red"
+    "classes": {
+      "container": "container",
+      "title": "title",
+      "input": "input",
+      "button": "btn"
     },
     "fields": [
     {

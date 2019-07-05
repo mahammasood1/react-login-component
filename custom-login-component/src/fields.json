@@ -1,10 +1,11 @@
 { 
-    "label": "Login Form",
+    "label": "Login",
     "classes": {
       "container": "container",
       "title": "title",
       "input": "input",
-      "button": "btn"
+      "button": "btn",
+      "custom-background": "back-img"
     },
     "fields": [
     {

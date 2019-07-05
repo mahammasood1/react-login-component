@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.css';
 import './components/LoginForm';
 import LoginForm from './components/LoginForm';
 import config from './fields.json'

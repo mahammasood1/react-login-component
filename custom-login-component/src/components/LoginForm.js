@@ -1,5 +1,4 @@
 import React from 'react';
-import '../App.css'
 import './base.css';
 import './custom.css';
 class LoginForm extends React.Component {
@@ -27,12 +26,12 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div class="login-form">
                 <form onSubmit={this.handleSubmit}>
-                    <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
+                    <h3 class="text-center" className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
                     {this.props.fields.fields.map(field =>(
-                        <div>
-                           <input class="input-con" 
+                        <div class="form-group">
+                           <input class="form-control" required="required"
                                 type={field.type}
                                 value={this.state[field.name]}
                                 onChange={this.handleChange(field.name)}
@@ -42,10 +41,13 @@ class LoginForm extends React.Component {
                             />
                         </div>
                     ))
-                    }
-                    <div class="container-submit" className={this.props.fields.classes.button}>
-					<input type="submit"/>  
-                    </div>                     
+                    }               
+					<input class="btn btn-primary btn-block" type="submit"/>  
+                    <br/>
+                    <div class="clearfix">
+                        <label class="pull-left checkbox-inline"><input type="checkbox"/> Remember me</label>
+                        <a href="#" class="pull-right">Forgot Password?</a>
+                    </div>                              
 				</form>
             </div>
         );

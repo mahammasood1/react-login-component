@@ -1,4 +1,5 @@
 import React from 'react';
+import '../App.css'
 import {LoginStyle} from './LoginStyle.css';
 
 class LoginForm extends React.Component {
@@ -26,7 +27,7 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div>
+            <div styles={this.props.fields.styles} className={`LoginStyle ${this.props.fields.classes}`}>
                 
                 <form onSubmit={this.handleSubmit}>
                     <h3>{this.props.fields.label}</h3>

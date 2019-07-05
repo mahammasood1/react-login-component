@@ -1,6 +1,9 @@
 { 
     "label": "Login Form",
-    "classes": "" ,
+    "classes": "",
+    "styles": {
+      "background-color": "red"
+    },
     "fields": [
     {
       "label": "Email: ",

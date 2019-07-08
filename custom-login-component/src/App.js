@@ -18,12 +18,15 @@ class App extends React.Component {
           fields={config}
           title="Login"
           hideRememberMe={false}
-          hideForgotPass={false}         
+          hideForgotPass={false} 
+          buttonValidation={true} 
+          disableAlert={false}       
           classes={{
             container: 'container',
             title: 'title',
             input: 'input',
-            rememberMeLabel: 'rmlabel'
+            rememberMeLabel: 'rmlabel',
+            inputGroup: 'inputGroup'
           }}
         />
       </div>

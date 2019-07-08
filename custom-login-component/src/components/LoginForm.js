@@ -42,7 +42,7 @@ class LoginForm extends React.Component {
     emailValidation = () => {
         const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
         const result = emailRegex.test(this.state.email);
-        if (this.state.touched.email){
+        if (this.state.touched.email && !this.props.disableAlert){
             return result ? "" : "error-email"
         }
         else return;
@@ -51,7 +51,7 @@ class LoginForm extends React.Component {
     passValidation = () => {
         const passwordRegex = /^[a-zA-Z0-9_@!#()]{8,}/;	
         const result = passwordRegex.test(this.state.password);
-        if (this.state.touched.password){
+        if (this.state.touched.password && !this.props.disableAlert){
             return result ? "" : "error-pass";
         }
         else return;
@@ -72,22 +72,26 @@ class LoginForm extends React.Component {
                     <h3 class={`text-center ${this.props.classes.title}`}>{this.props.title}</h3>
                     {this.props.fields.fields.map(field =>(
                         <div class="form-group">
-                            <input 
-                                class={`form-control ${this.props.classes.input} ${field.name === "email"} ? ${this.emailValidation()} : ${this.passValidation()}`}                     
-                                required="required" 
-                                onBlur={this.handleBlur(field.name)}
-                                type={field.type}
-                                value={this.state[field.name]}
-                                onChange={this.handleChange(field.name)}
-                                id={field.name}
-                                placeholder={field.placeholder}
-                                name={field.name} 
-                            />
+                            <div class={`input-group ${this.props.classes.inputGroup}`}>
+                                {field.name === "email" ? <span class="input-group-addon"><i class="fa fa-user"></i></span> : <span class="input-group-addon"><i class="fa fa-lock"></i></span>}
+                                <input 
+                                    class={`form-control ${this.props.classes.input} ${field.name === "email"} ? ${this.emailValidation()} : ${this.passValidation()}`}                     
+                                    required="required" 
+                                    onBlur={this.handleBlur(field.name)}
+                                    type={field.type}
+                                    value={this.state[field.name]}
+                                    onChange={this.handleChange(field.name)}
+                                    id={field.name}
+                                    placeholder={field.placeholder}
+                                    name={field.name} 
+                                    
+                                />
+                            </div>
                         </div>
                     ))
                     }               
 					<input 
-                        class={`btn btn-primary btn-block ${this.props.classes.input} ${buttonDisabled}`} 
+                        class={`btn btn-primary btn-block ${this.props.classes.input} ${this.props.buttonValidation && buttonDisabled}`} 
                         type="submit" 
                         onClick={this.inputValidation}
                     />                 

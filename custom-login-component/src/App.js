@@ -7,6 +7,10 @@ class App extends React.Component {
 
   render() {
 
+    // const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
+    // const passwordRegex = /^[a-zA-Z0-9_@!#()]{8,}/;	
+
     return (
       <div className="App">
         <LoginForm 

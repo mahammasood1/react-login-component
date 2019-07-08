@@ -73,9 +73,17 @@ class LoginForm extends React.Component {
                     {this.props.fields.fields.map(field =>(
                         <div class="form-group">
                             <div class={`input-group ${this.props.classes.inputGroup}`}>
-                                {field.name === "email" ? <span class="input-group-addon"><i class="fa fa-user"></i></span> : <span class="input-group-addon"><i class="fa fa-lock"></i></span>}
+                                {field.name === "email" ? 
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span> : 
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                }
                                 <input 
-                                    class={`form-control ${this.props.classes.input} ${field.name === "email"} ? ${this.emailValidation()} : ${this.passValidation()}`}                     
+                                    class={`form-control 
+                                        ${this.props.classes.input} 
+                                        ${field.name === "email"} ? 
+                                        ${this.emailValidation()} : 
+                                        ${this.passValidation()}`
+                                    }                     
                                     required="required" 
                                     onBlur={this.handleBlur(field.name)}
                                     type={field.type}
@@ -83,15 +91,18 @@ class LoginForm extends React.Component {
                                     onChange={this.handleChange(field.name)}
                                     id={field.name}
                                     placeholder={field.placeholder}
-                                    name={field.name} 
-                                    
+                                    name={field.name}                        
                                 />
                             </div>
                         </div>
                     ))
                     }               
 					<input 
-                        class={`btn btn-primary btn-block ${this.props.classes.input} ${this.props.buttonValidation && buttonDisabled}`} 
+                        class={`btn btn-primary btn-block 
+                            ${this.props.classes.input} 
+                            ${this.props.buttonValidation && 
+                            buttonDisabled}`
+                        } 
                         type="submit" 
                         onClick={this.inputValidation}
                     />                 

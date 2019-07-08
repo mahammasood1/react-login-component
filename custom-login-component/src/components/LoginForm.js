@@ -4,15 +4,12 @@ import './custom.css';
 
 function validate(email, password) {
     // true means invalid, so our conditions got reversed
-
     const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
     return {
-      email: email.length === 0,
-      password: password.length === 0
+        email: email.length === 0,
+        password: password.length === 0
     };
-
-  }
+}
 
 class LoginForm extends React.Component {
 
@@ -29,7 +26,6 @@ class LoginForm extends React.Component {
     }
 
     handleSubmit = (e) => {
-
         alert(this.state.email);
         alert(this.state.password);
         e.preventDefault();
@@ -47,8 +43,8 @@ class LoginForm extends React.Component {
         // const emailRegex = new RegExp(emailRegex);
         // const passwordRegex = new RegExp(passwordRegex);
         return (
-          emailRegex.test(this.state.email) &&
-          passwordRegex.test(this.state.password)
+            emailRegex.test(this.state.email) &&
+            passwordRegex.test(this.state.password)
         );
     };
 
@@ -74,15 +70,15 @@ class LoginForm extends React.Component {
         
         const shouldMarkError = field => {
           //const hasError = errors[field];
-          //const shouldShow = this.state.touched[field]; 
-          
-          if (field === "email"){ 
+            const shouldShow = this.state.touched[field]; 
+            console.log(shouldShow)
+            if (field === "email"){ 
             return this.emailValidation() ? false : true
-          }
-          else if (field === "password"){
+            }
+            else if (field === "password"){
             return this.passValidation() ? false : true
-          }
-          
+            }
+            
           //return hasError ? shouldShow : false;
         };
 

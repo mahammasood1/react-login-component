@@ -37,5 +37,5 @@ h3 {
       box-shadow: 0 2px 4px #666;
       opacity: 0.7; }
 
-      .error-email { border: 1px solid red; }
-      .error-password { border: 1px solid red; }
+      .error-email[type="email"] { border: 1px solid red; }
+      .error-pass[type="password"] { border: 1px solid red; }

@@ -2,15 +2,6 @@ import React from 'react';
 import './base.css';
 import './custom.css';
 
-function validate(email, password) {
-    // true means invalid, so our conditions got reversed
-    const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-    return {
-        email: email.length === 0,
-        password: password.length === 0
-    };
-}
-
 class LoginForm extends React.Component {
 
     constructor(props) {
@@ -50,12 +41,20 @@ class LoginForm extends React.Component {
 
     emailValidation = () => {
         const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        return emailRegex.test(this.state.email);
+        const result = emailRegex.test(this.state.email);
+        if (this.state.touched.email){
+            return result ? "" : "error-email"
+        }
+        else return;
     }
 
     passValidation = () => {
         const passwordRegex = /^[a-zA-Z0-9_@!#()]{8,}/;	
-        return passwordRegex.test(this.state.password);
+        const result = passwordRegex.test(this.state.password);
+        if (this.state.touched.password){
+            return result ? "" : "error-pass";
+        }
+        else return;
     }
 
     handleBlur = (field) => (evt) => {    
@@ -66,23 +65,6 @@ class LoginForm extends React.Component {
 
     render() {
         const buttonDisabled = this.inputValidation() ? "" : "disabled";
-        const errors = validate(this.state.email, this.state.password);
-        
-        const shouldMarkError = field => {
-          //const hasError = errors[field];
-            const shouldShow = this.state.touched[field]; 
-            console.log(shouldShow)
-            if (field === "email"){ 
-            return this.emailValidation() ? false : true
-            }
-            else if (field === "password"){
-            return this.passValidation() ? false : true
-            }
-            
-          //return hasError ? shouldShow : false;
-        };
-
-
 
         return ( 
             <div class={`login-form ${this.props.classes.container} `} >
@@ -91,7 +73,7 @@ class LoginForm extends React.Component {
                     {this.props.fields.fields.map(field =>(
                         <div class="form-group">
                             <input 
-                                class={`form-control ${this.props.classes.input} ${shouldMarkError(field.name) ? `error-${field.name}` : ""}`}                     
+                                class={`form-control ${this.props.classes.input} ${field.name === "email"} ? ${this.emailValidation()} : ${this.passValidation()}`}                     
                                 required="required" 
                                 onBlur={this.handleBlur(field.name)}
                                 type={field.type}

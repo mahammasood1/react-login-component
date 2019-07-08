@@ -108,7 +108,12 @@ class LoginForm extends React.Component {
                     />                 
                     <br/>
                     <div class="clearfix">
-                        {!this.props.hideRememberMe && <label class={`pull-left checkbox-inline ${this.props.classes.rememberMeLabel}`}><input type="checkbox"/> Remember me</label>}
+                        {!this.props.hideRememberMe && 
+                            <label class={`pull-left checkbox-inline 
+                                        ${this.props.classes.rememberMeLabel}`}>
+                                <input type="checkbox"/> Remember me
+                            </label>
+                        }
                         {!this.props.hideForgotPass && <a href="#bla" class="pull-right">Forgot Password?</a> }                      
                     </div>                              
 				</form> }

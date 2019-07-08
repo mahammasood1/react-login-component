@@ -1,13 +1,4 @@
 { 
-    "label": "Login",
-    "classes": {
-      "container": "container",
-      "background": "background",
-      "title": "title",
-      "input": "input",
-      "button": "btn",
-      "custom-background": "back-img"
-    },
     "fields": [
     {
       "label": "Email: ",
@@ -15,7 +6,6 @@
       "type":"Email",
       "placeholder": "Enter Email..."
     },
-
     {
       "label": "Password: ",
       "name": "password",

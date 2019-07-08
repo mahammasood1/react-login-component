@@ -1,3 +1,21 @@
 .container {
     position: relative;
+    top: 30px;
 }
+
+.title {
+    font-size: 30px;
+}
+
+.input[type="email"], .input[type="password"] {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+/* .rmlabel {
+    font-size: 12px;
+} */
+
+/* .input[type="submit"]{
+    background-color: red;
+} */

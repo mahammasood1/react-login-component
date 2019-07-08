@@ -1,6 +1,7 @@
 import React from 'react';
 import './base.css';
 import './custom.css';
+
 class LoginForm extends React.Component {
 
     constructor(props) {
@@ -26,29 +27,30 @@ class LoginForm extends React.Component {
 
     render() {
         return (
-            <div class={`login-form ${this.props.fields.classes.container} `} >
-                <form onSubmit={this.handleSubmit}>
-                    <h3 class={`text-center ${this.props.fields.classes.title}`}>{this.props.fields.label}</h3>
+            <div class={`login-form ${this.props.classes.container} `} >
+                { !this.props.hideForm && <form onSubmit={this.handleSubmit}>
+                    <h3 class={`text-center ${this.props.classes.title}`}>{this.props.title}</h3>
                     {this.props.fields.fields.map(field =>(
                         <div class="form-group">
-                            <input class="form-control" required="required"
-                                    type={field.type}
-                                    value={this.state[field.name]}
-                                    onChange={this.handleChange(field.name)}
-                                    id={field.name}
-                                    placeholder={field.placeholder}
-                                    name={field.name} 
-                                />
+                            <input class={`form-control ${this.props.classes.input}`} required="required"
+                                type={field.type}
+                                value={this.state[field.name]}
+                                onChange={this.handleChange(field.name)}
+                                id={field.name}
+                                placeholder={field.placeholder}
+                                name={field.name} 
+                            />
                         </div>
                     ))
                     }               
-					<input class="btn btn-primary btn-block" type="submit"/>  
+					<input class={`btn btn-primary btn-block ${this.props.classes.input}`} type="submit"/>  
                     <br/>
                     <div class="clearfix">
-                        <label class="pull-left checkbox-inline"><input type="checkbox"/> Remember me</label>
-                        <a href="#bla" class="pull-right">Forgot Password?</a>
+                        {!this.props.hideRememberMe && <label class={`pull-left checkbox-inline ${this.props.classes.rememberMeLabel}`}><input type="checkbox"/> Remember me</label>}
+                        {!this.props.hideForgotPass && <a href="#bla" class="pull-right">Forgot Password?</a> }                      
                     </div>                              
-				</form>
+				</form> }
+
             </div>
         );
     }

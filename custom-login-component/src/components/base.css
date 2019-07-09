@@ -2,7 +2,7 @@
 
 
 .login-form {
-    width: 390px;
+    width: 410px;
 }
 .login-form form {
     margin-bottom: 15px;
@@ -44,5 +44,20 @@ h3 {
     box-shadow: 0 2px 4px #666;
     opacity: 0.7; }
 
-    .error-email[type="email"] { border: 1.2px solid red }
-    .error-pass[type="password"] { border: 1.2px solid red; }
+.error-email[type="email"] { 
+    border: 1.2px solid red;
+    background-image: url("download.png");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: right 5px top;
+    background-position-y: center;
+
+}
+.error-pass[type="password"] { 
+    border: 1.2px solid red; 
+    background-image: url("download.png");
+    background-repeat: no-repeat;
+    background-size: 15px;
+    background-position: right 5px top;
+    background-position-y: center;
+}

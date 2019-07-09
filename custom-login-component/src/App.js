@@ -5,11 +5,12 @@ import config from './fields.json';
 import './components/custom.css';
 class App extends React.Component {
 
+  handleSubmit = (e) => {
+    e.preventDefault();
+    alert(e.target.email.value)
+  }
+
   render() {
-
-    // const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-
-    // const passwordRegex = /^[a-zA-Z0-9_@!#()]{8,}/;	
 
     return (
       <div className="App">
@@ -17,6 +18,7 @@ class App extends React.Component {
           hideForm={false}
           fields={config}
           title="Login"
+          onSubmit={this.handleSubmit}
           hideRememberMe={false}
           hideForgotPass={false} 
           buttonValidation={true} 

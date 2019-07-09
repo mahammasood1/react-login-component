@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
     }
 
     passValidation = () => {
-        const passwordRegex = /^[a-zA-Z0-9_@!#()]{8,}/;	
+        const passwordRegex = /^[a-zA-Z0-9_@!#()]{6,}/;	
         const result = passwordRegex.test(this.state.password);
         if (this.state.touched.password && !this.props.disableAlert){
             return result ? "" : "error-pass";
@@ -68,7 +68,7 @@ class LoginForm extends React.Component {
 
         return ( 
             <div class={`login-form ${this.props.classes.container} `} >
-                { !this.props.hideForm && <form onSubmit={this.handleSubmit}>
+                { !this.props.hideForm && <form onSubmit={this.props.onSubmit}>
                     <h3 class={`text-center ${this.props.classes.title}`}>{this.props.title}</h3>
                     {this.props.fields.fields.map(field =>(
                         <div class="form-group">

@@ -8,14 +8,19 @@ class LoginForm extends React.Component {
 
     constructor(props) {
         super(props);
+        // this.state = {
+        //     name: "",
+        //     input: []
+        //   };
         this.state = {
-            email: '',
-            password: '',
+            email:'',
+            password:'',
             formErrors: {Email: '', Password: ''},
             isEmailValid: false,
             isPwdValid: false,
             isFormValid: false
-        };
+        }
+        
     }
 
     handleSubmit = (event) => {
@@ -30,7 +35,8 @@ class LoginForm extends React.Component {
         let value = event.target.value;
 
         this.setState({
-            [field]: value},  () => {this.validateField(name, value) });
+            [field]: value}
+             ,  () => {this.validateField(name, value) });
         
     }
 
@@ -56,10 +62,10 @@ class LoginForm extends React.Component {
             break;
 
           case 'password':
-            passwordValid = value.length >= 8;
-            formErrors.Password = passwordValid ? '': ' must be atleast 8 characters';
+            passwordValid = value.length >= 6;
+            formErrors.Password = passwordValid ? '': ' must be atleast 6 characters';
             break;
-            
+
           default:
             break;
         }
@@ -77,6 +83,18 @@ class LoginForm extends React.Component {
         return(error.length === 0 ? '' : 'has-error');
      }
 
+     appendInput() {
+
+        this.setState({
+            input: this.state.input.concat([this.props.fields.classes.name])
+          });
+
+          console.log('state',this.state);
+
+        // var newInput = `input-${this.state.inputs.length}`;
+        // this.setState(prevState => ({ inputs: prevState.inputs.concat([newInput]) }));
+    }
+
     render() {
         return (
             <div id="container">
@@ -84,9 +102,9 @@ class LoginForm extends React.Component {
                     
                     <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
 
-                    {/* <div class="error">
+                    { <div class="error">
                         <FormErrors formErrors={this.state.formErrors}/>
-                    </div> */}
+                    </div> }
 
                     {this.props.fields.fields.map(field =>(
                         <div>
@@ -102,19 +120,24 @@ class LoginForm extends React.Component {
                                 id={field.name}
                                 placeholder={field.placeholder}
                                 name={field.name} 
+                            
                             />
                         </div>
+
+                        
+
 
                         </div>
                     ))
                     }
 
-                    <div class="error">
+                    {<div class="error">
                         <FormErrors formErrors={this.state.formErrors}/>
-                    </div>
+                    </div> }
                     <div id="bottom">
                     <div className={this.props.fields.classes.button}>
-					<input type="submit" disabled={!this.state.isFormValid}/>  
+                    { <input type="submit" disabled={!this.state.isFormValid}/>}
+                   
                     </div>   
 
                     <div>

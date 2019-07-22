@@ -2,7 +2,8 @@
 
 body {
     
-    background-image: linear-gradient(to top, #3e75ee 0%, #ed00f5 100%);
+    /* background-image: linear-gradient(to top, #3e75ee 0%, #ed00f5 100%); */
+    background-color:lightsteelblue;
     background-attachment: fixed;
     background-repeat: no-repeat;
     font-family: 'Vibur', cursive;
@@ -17,7 +18,8 @@ form {
     border-radius: 5px;
     margin: 2% auto;
     padding: 2%;
-    background-image: linear-gradient(-225deg, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 50%);
+    /* background-image: linear-gradient(-225deg, rgb(255, 255, 255) 50%, rgb(255, 255, 255) 50%); */
+    background-color: lightblue;
 }
 
 
@@ -62,7 +64,7 @@ input[type="submit"] {
   width: 50%;
   height: 50px;
   border-radius: 10px;
-  background: #d33f8d;
+  background: royalblue;
   display: flex;
   justify-content: center;
   align-items: center;

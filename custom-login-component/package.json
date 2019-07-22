@@ -20,7 +20,9 @@
   },
   "homepage": "https://github.com/abdulhannan8122/react-login-component#readme",
   "dependencies": {
+    "bootstrap": "^3.4.1",
     "react": "^16.8.6",
+    "react-bootstrap": "^0.32.4",
     "react-dom": "^16.8.6",
     "react-scripts": "^2.1.8"
   },

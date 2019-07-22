@@ -2,10 +2,7 @@ import React from 'react';
 import '../App.css'
 import './base.css';
 import './custom.css';
-import { FormErrors } from '../FormErrors';
-
-// import { Button, FormGroup, FormControl, ControlLabel } from "react-bootstrap";
-
+import {FormErrors} from '../FormErrors';
 
 class LoginForm extends React.Component {
 
@@ -14,7 +11,7 @@ class LoginForm extends React.Component {
         this.state = {
             email: '',
             password: '',
-            formErrors: {email: '', password: ''},
+            formErrors: {Email: '', Password: ''},
             isEmailValid: false,
             isPwdValid: false,
             isFormValid: false
@@ -55,12 +52,14 @@ class LoginForm extends React.Component {
         switch(name) {
           case 'email':
             emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-            formErrors.email = emailValid ? '' : ' is invalid';
+            formErrors.Email = emailValid ? '' : ' is invalid';
             break;
+
           case 'password':
             passwordValid = value.length >= 8;
-            formErrors.password = passwordValid ? '': ' is too short';
+            formErrors.Password = passwordValid ? '': ' must be atleast 8 characters';
             break;
+            
           default:
             break;
         }
@@ -85,9 +84,9 @@ class LoginForm extends React.Component {
                     
                     <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
 
-                    <div className="panel panel-default">
-                        <FormErrors formErrors={this.state.formErrors} />
-                    </div>
+                    {/* <div class="error">
+                        <FormErrors formErrors={this.state.formErrors}/>
+                    </div> */}
 
                     {this.props.fields.fields.map(field =>(
                         <div>
@@ -110,6 +109,9 @@ class LoginForm extends React.Component {
                     ))
                     }
 
+                    <div class="error">
+                        <FormErrors formErrors={this.state.formErrors}/>
+                    </div>
                     <div id="bottom">
                     <div className={this.props.fields.classes.button}>
 					<input type="submit" disabled={!this.state.isFormValid}/>  

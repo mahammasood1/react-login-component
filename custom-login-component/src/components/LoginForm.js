@@ -18,7 +18,8 @@ class LoginForm extends React.Component {
             formErrors: {Email: '', Password: ''},
             isEmailValid: false,
             isPwdValid: false,
-            isFormValid: false
+            isFormValid: false,
+            inputs: [{name:"", value:""}],
         }
         
     }
@@ -57,12 +58,19 @@ class LoginForm extends React.Component {
       
         switch(name) {
           case 'email':
-            emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+             emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
+
+            
             formErrors.Email = emailValid ? '' : ' is invalid';
             break;
 
           case 'password':
-            passwordValid = value.length >= 6;
+            //passwordValid = value.length >= 6;
+
+            var reg = this.props.fields.regex.pwdRegex;
+            var pwdReg = new RegExp(reg);
+            passwordValid = pwdReg.test(value)
+
             formErrors.Password = passwordValid ? '': ' must be atleast 6 characters';
             break;
 
@@ -91,20 +99,43 @@ class LoginForm extends React.Component {
 
           console.log('state',this.state);
 
+          
+
         // var newInput = `input-${this.state.inputs.length}`;
         // this.setState(prevState => ({ inputs: prevState.inputs.concat([newInput]) }));
     }
 
+    addCat = (e) => {
+
+        var x;
+
+
+        // {this.props.fields.fields.map(field =>(
+            
+        // //    x = {field.name}
+
+        // //     this.setState((prevState) => ({
+        // //   inputs: [...prevState.inputs, {name: x, value:""}],
+        // // }))
+            
+        // ))
+        // }
+        
+      }
+
     render() {
+
+        let {inputs} = this.state;
+
         return (
             <div id="container">
-                <form onSubmit={this.handleSubmit}>
+                <form onLoad={this.addCat} onSubmit={this.handleSubmit}>
                     
                     <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
 
-                    { <div class="error">
+                    {/* { <div class="error">
                         <FormErrors formErrors={this.state.formErrors}/>
-                    </div> }
+                    </div> } */}
 
                     {this.props.fields.fields.map(field =>(
                         <div>
@@ -153,3 +184,8 @@ class LoginForm extends React.Component {
 }
 
 export default LoginForm;
+
+
+{
+    
+  }

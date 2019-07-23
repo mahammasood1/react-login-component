@@ -20,5 +20,12 @@
       "type": "Password",
       "placeholder": "Enter Password..."
     }
+  ],
+
+  "regex": [
+    {
+      "emailRegex":"" ,
+      "pwdRegex": "[A-Za-z0-9]{7}"
+    }
   ]
 }

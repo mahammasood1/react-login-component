@@ -19,12 +19,6 @@
       "name": "password",
       "type": "Password",
       "placeholder": "Enter password..."
-    },
-    {
-      "label": "Password: ",
-      "name": "password",
-      "type": "Password",
-      "placeholder": "Enter password..."
     }
   ],
 

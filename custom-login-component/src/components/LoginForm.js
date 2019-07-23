@@ -124,7 +124,7 @@ class LoginForm extends React.Component {
                     </div> } */}
 
                     {this.props.fields.fields.map(field =>(
-                        <div>
+                        <div class="form-group">
                         {/* <div class="label">
                             {field.label}
                         </div> */}

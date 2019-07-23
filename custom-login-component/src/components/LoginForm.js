@@ -13,6 +13,7 @@ class LoginForm extends React.Component {
                 email: false,        
                 password: false,  
             }, 
+            custom: '',
         };
     }
 

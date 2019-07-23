@@ -19,7 +19,7 @@ class LoginForm extends React.Component {
             isEmailValid: false,
             isPwdValid: false,
             isFormValid: false,
-            inputs: [{name:"", value:""}],
+            inputs: [{name:""}],
         }
         
     }
@@ -58,8 +58,8 @@ class LoginForm extends React.Component {
       
         switch(name) {
           case 'email':
-             emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
-
+             emailValid = value.match(this.props.fields.regex.emailRegex);
+            console.log(emailValid);
             
             formErrors.Email = emailValid ? '' : ' is invalid';
             break;
@@ -114,9 +114,9 @@ class LoginForm extends React.Component {
             
     //        var x = {field.name};
 
-    //         this.setState((prevState) => ({
-    //       inputs: [...prevState.inputs, {name: x, value:""}],
-    //     }))
+        //     this.setState((prevState) => ({
+        //   inputs: [...prevState.inputs, {name: x}],
+        // }))
             
     //      ))
     //     }

@@ -49,7 +49,7 @@ class LoginForm extends React.Component {
                 const emailRegex = new RegExp(emailexp);
                 emailValid = emailRegex.test(value)
 
-                formErrors.Email = emailValid ? '' : ' is invalid';
+                formErrors.Email = emailValid ? "" : "error-email";
                 break;
 
             case 'password':
@@ -90,6 +90,10 @@ class LoginForm extends React.Component {
                     {this.props.fields.fields.map(field => (
                         <div class="form-group">
                             <div class={`input-group ${this.props.fields.classes.inputGroup}`}>
+                            {field.name === "password" ? 
+                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span> : 
+                                    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                }
                                 <input class={`form-control 
                                         ${this.props.fields.classes.input}`
                                 }

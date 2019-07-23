@@ -70,8 +70,9 @@ class LoginForm extends React.Component {
             var reg = this.props.fields.regex.pwdRegex;
             var pwdReg = new RegExp(reg);
             passwordValid = pwdReg.test(value)
+            console.log(passwordValid)
 
-            formErrors.Password = passwordValid ? '': ' must be atleast 6 characters';
+            formErrors.Password = passwordValid ? '': ' must be atleast 8 characters';
             break;
 
           default:

@@ -29,10 +29,10 @@ class LoginForm extends React.Component {
     }
 
     inputValidation = () => {  
-        const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        const passwordRegex = /^[a-zA-Z0-9_@!#()]{8,}/;	
-        // const emailRegex = new RegExp(emailRegex);
-        // const passwordRegex = new RegExp(passwordRegex);
+        const emailexp = this.props.fields.regex.emailRegex;
+        const passwordexp = this.props.fields.regex.passwordRegex;
+        const emailRegex = new RegExp(emailexp);
+        const passwordRegex = new RegExp(passwordexp);
         return (
             emailRegex.test(this.state.email) &&
             passwordRegex.test(this.state.password)
@@ -40,12 +40,8 @@ class LoginForm extends React.Component {
     };
 
     emailValidation = () => {
-        const mailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
-        console.log(mailRegex)
         const email = this.props.fields.regex.emailRegex;
-        // console.log(email)
         const emailRegex = new RegExp(email);
-        console.log(emailRegex)
         const result = emailRegex.test(this.state.email);
         if (this.state.touched.email && !this.props.disableAlert){
             return result ? "" : "error-email"

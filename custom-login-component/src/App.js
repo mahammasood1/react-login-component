@@ -21,7 +21,7 @@ class App extends React.Component {
           onSubmit={this.handleSubmit}
           hideRememberMe={false}
           hideForgotPass={false} 
-          buttonValidation={false} 
+          buttonValidation={true} 
           disableAlert={false}       
           classes={{
             container: 'container',

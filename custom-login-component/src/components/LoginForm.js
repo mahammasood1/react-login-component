@@ -44,20 +44,20 @@ class LoginForm extends React.Component {
 
         switch (name) {
             case 'email':
-                emailValid = value.match(this.props.fields.regex.emailRegex);
-                console.log(emailValid);
+               // emailValid = value.match(this.props.fields.regex.emailRegex);
+                const emailexp = this.props.fields.regex.emailRegex;
+                const emailRegex = new RegExp(emailexp);
+                emailValid = emailRegex.test(value)
 
                 formErrors.Email = emailValid ? '' : ' is invalid';
                 break;
 
             case 'password':
+
                 //passwordValid = value.length >= 6;
-
-                var reg = this.props.fields.regex.pwdRegex;
-                var pwdReg = new RegExp(reg);
-                passwordValid = pwdReg.test(value)
-
-                console.log(passwordValid)
+                const passwordexp = this.props.fields.regex.pwdRegex;
+                const pwdRegex = new RegExp(passwordexp);
+                passwordValid = pwdRegex.test(value)
 
                 formErrors.Password = passwordValid ? '' : ' must be atleast 8 characters';
                 break;

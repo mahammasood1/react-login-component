@@ -11,7 +11,8 @@ class LoginForm extends React.Component {
             password: '',
             touched: {      
                 email: false,        
-                password: false,  
+                password: false,
+                custom: false  
             }, 
             custom: '',
         };
@@ -60,11 +61,22 @@ class LoginForm extends React.Component {
         else return;
     }
 
+    customValidation = () => {
+        const custom = this.props.fields.regex.customRegex;
+        const customRegex = new RegExp(custom)
+        const result = customRegex.test(this.state.custom);
+        if (this.state.touched.custom && !this.props.disableAlert){
+            return result ? "" : "error-custom";
+        }
+        else return;
+    }
+
     handleBlur = (field) => (evt) => {    
         this.setState({      
             touched: { ...this.state.touched, [field]: true },    
         });     
     }
+
 
     render() {
         const buttonDisabled = this.inputValidation() ? "" : "disabled";
@@ -83,9 +95,13 @@ class LoginForm extends React.Component {
                                 <input 
                                     class={`form-control 
                                         ${this.props.classes.input} 
-                                        ${field.name === "email"} ? 
-                                        ${this.emailValidation()} : 
-                                        ${this.passValidation()}`
+                                        if ${field.name === "email"}
+                                            ${this.emailValidation()}
+                                        else if ${field.name === "password"}
+                                            ${this.passValidation()}
+                                        else
+                                            ${this.customValidation()}`
+
                                     }                     
                                     required="required" 
                                     onBlur={this.handleBlur(field.name)}

@@ -40,7 +40,12 @@ class LoginForm extends React.Component {
     };
 
     emailValidation = () => {
-        const emailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        const mailRegex = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+        console.log(mailRegex)
+        const email = this.props.fields.regex.emailRegex;
+        // console.log(email)
+        const emailRegex = new RegExp(email);
+        console.log(emailRegex)
         const result = emailRegex.test(this.state.email);
         if (this.state.touched.email && !this.props.disableAlert){
             return result ? "" : "error-email"
@@ -48,8 +53,9 @@ class LoginForm extends React.Component {
         else return;
     }
 
-    passValidation = () => {
-        const passwordRegex = /^[a-zA-Z0-9_@!#()]{6,}/;	
+    passValidation = () => {	
+        const pass = this.props.fields.regex.passwordRegex;
+        const passwordRegex = new RegExp(pass)
         const result = passwordRegex.test(this.state.password);
         if (this.state.touched.password && !this.props.disableAlert){
             return result ? "" : "error-pass";

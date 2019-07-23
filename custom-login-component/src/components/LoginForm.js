@@ -70,6 +70,7 @@ class LoginForm extends React.Component {
             var reg = this.props.fields.regex.pwdRegex;
             var pwdReg = new RegExp(reg);
             passwordValid = pwdReg.test(value)
+            
             console.log(passwordValid)
 
             formErrors.Password = passwordValid ? '': ' must be atleast 8 characters';
@@ -106,21 +107,19 @@ class LoginForm extends React.Component {
         // this.setState(prevState => ({ inputs: prevState.inputs.concat([newInput]) }));
     }
 
-    addCat = (e) => {
-
-        var x;
+    updateState = (e) => {
 
 
-        // {this.props.fields.fields.map(field =>(
+    //  {this.props.fields.fields.map(field =>(
             
-        // //    x = {field.name}
+    //        var x = {field.name};
 
-        // //     this.setState((prevState) => ({
-        // //   inputs: [...prevState.inputs, {name: x, value:""}],
-        // // }))
+    //         this.setState((prevState) => ({
+    //       inputs: [...prevState.inputs, {name: x, value:""}],
+    //     }))
             
-        // ))
-        // }
+    //      ))
+    //     }
         
       }
 
@@ -130,7 +129,7 @@ class LoginForm extends React.Component {
 
         return (
             <div id="container">
-                <form onLoad={this.addCat} onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     
                     <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
 

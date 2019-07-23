@@ -114,117 +114,59 @@ class LoginForm extends React.Component {
         let {inputs} = this.state;
 
         return (
-            // <div id="container">
-            //     <form onSubmit={this.handleSubmit}>
+            <div id="container">
+                <form onSubmit={this.handleSubmit}>
                     
-            //         <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
+                    <h3 className={this.props.fields.classes.title}>{this.props.fields.label}</h3>
 
-            //         {/* { <div class="error">
-            //             <FormErrors formErrors={this.state.formErrors}/>
-            //         </div> } */}
+                    {/* { <div class="error">
+                        <FormErrors formErrors={this.state.formErrors}/>
+                    </div> } */}
 
-            //         {this.props.fields.fields.map(field =>(
-            //             <div>
-            //             <div class="label">
-            //                 {field.label}
-            //             </div>
+                    {this.props.fields.fields.map(field =>(
+                        <div>
+                        {/* <div class="label">
+                            {field.label}
+                        </div> */}
 
-            //             <div>
-            //                <input 
-            //                     type={field.type}
-            //                     value={this.state[field.name]}
-            //                     onChange={this.handleChange(field.name)}
-            //                     id={field.name}
-            //                     placeholder={field.placeholder}
-            //                     name={field.name} 
+                        <div>
+                           <input 
+                                type={field.type}
+                                value={this.state[field.name]}
+                                onChange={this.handleChange(field.name)}
+                                id={field.name}
+                                placeholder={field.placeholder}
+                                name={field.name} 
                             
-            //                 />
-            //             </div>
+                            />
+                        </div>
 
                         
 
 
-            //             </div>
-            //         ))
-            //         }
-
-            //         {<div class="error">
-            //             <FormErrors formErrors={this.state.formErrors}/>
-            //         </div> }
-            //         <div id="bottom">
-            //         <div className={this.props.fields.classes.button}>
-            //         { <input type="submit" disabled={!this.state.isFormValid}/>}
-                   
-            //         </div>   
-
-            //         <div>
-            //         <input type="checkbox"/><label class="check" for="checkbox">Remember Me</label>
-            //         </div>
-
-            //         </div>   
-
-			// 	</form>
-            // </div>
-
-            <div id="container" class={`login-form ${this.props.fields.classes.container} `} >
-                <form onSubmit={this.handleSubmit}>
-                    <h3 class={`text-center ${this.props.fields.classes.title}`}>{this.props.fields.label}</h3>
-                    {this.props.fields.fields.map(field =>(
-                        <div class="form-group">
-                            {/* <div class={`input-group ${this.props.classes.inputGroup}`}> */}
-                            <div>
-                                {field.name === "email" ? 
-                                    <span class="input-group-addon"><i class="fa fa-user"></i></span> : 
-                                    <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                }
-                                <input 
-                                    // class={`form-control 
-                                    //     ${this.props.classes.input} 
-                                    //     ${field.name === "email"} ? 
-                                    //     ${this.emailValidation()} : 
-                                    //     ${this.passValidation()}`
-                                    // }   
-                                                   
-                                    required="required" 
-                                    // onBlur={this.handleBlur(field.name)}
-                                    type={field.type}
-                                    value={this.state[field.name]}
-                                    onChange={this.handleChange(field.name)}
-                                    id={field.name}
-                                    placeholder={field.placeholder}
-                                    name={field.name}                        
-                                />
-                            </div>
                         </div>
                     ))
-                    } 
+                    }
 
                     {<div class="error">
-                         <FormErrors formErrors={this.state.formErrors}/>
-                     </div> }
+                        <FormErrors formErrors={this.state.formErrors}/>
+                    </div> }
+                    <div id="bottom">
+                    <div className={this.props.fields.classes.button}>
+                    { <input type="submit" disabled={!this.state.isFormValid}/>}
+                   
+                    </div>   
 
-                    <div id="bottom">             
-					<input 
-                        class={`btn btn-primary btn-block 
-                            `
-                        } 
-                        type="submit" disabled={!this.state.isFormValid}
-                      
-                    />                 
-                    <br/>
-                    <div class="clearfix">
-                        {
-                            <label class={`pull-left checkbox-inline 
-                                       `}>
-                                <input type="checkbox"/> Remember me
-                            </label>
-                        }
-                        {<a href="#forgot" class="pull-right">Forgot Password?</a> }                      
-                    </div>  
+                    <div>
+                    <input type="checkbox"/><label class="check" for="checkbox">Remember Me</label>
+                    </div>
 
-                    </div>                            
-				</form> }
+                    </div>   
+
+				</form>
             </div>
+
+            
         );
     }
 }

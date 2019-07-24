@@ -37,11 +37,22 @@ class LoginForm extends React.Component {
         const emailRegex = new RegExp(emailexp);
         const passwordRegex = new RegExp(passwordexp);
         const customRegex = new RegExp(customexp);
-        return (
-            emailRegex.test(this.state.email) &&
-            passwordRegex.test(this.state.password) &&
-            customRegex.test(this.state.custom)
-        );
+
+        if (this.state.custom)
+            return (
+                emailRegex.test(this.state.email) &&
+                passwordRegex.test(this.state.password) &&
+                customRegex.test(this.state.custom)
+            );
+
+        else
+            return (
+                emailRegex.test(this.state.email) &&
+                passwordRegex.test(this.state.password)
+            );
+
+
+
     };
 
     emailValidation = () => {

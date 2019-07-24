@@ -4,13 +4,13 @@
       "label": "Email: ",
       "name": "email",
       "type":"Email",
-      "placeholder": "Enter Email..."
+      "placeholder": "Enter email..."
     },
     {
       "label": "Password: ",
       "name": "password",
       "type": "Password",
-      "placeholder": "Enter Password..."
+      "placeholder": "Enter password..."
     }
   ],
     "regex" : {

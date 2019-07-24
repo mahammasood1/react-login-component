@@ -14,15 +14,15 @@ class App extends React.Component {
 
     return (
       <div className="App">
-        <LoginForm 
+        <LoginForm
           hideForm={false}
           fields={config}
           title="Login"
           onSubmit={this.handleSubmit}
           hideRememberMe={false}
-          hideForgotPass={false} 
-          buttonValidation={true} 
-          disableAlert={false}       
+          hideForgotPass={false}
+          buttonValidation={true}
+          disableAlert={false}
           classes={{
             container: 'container',
             title: 'title',
@@ -34,7 +34,7 @@ class App extends React.Component {
       </div>
     );
   }
-  
+
 }
 
 export default App;

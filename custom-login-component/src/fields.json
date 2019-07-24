@@ -11,12 +11,6 @@
       "name": "password",
       "type": "Password",
       "placeholder": "Enter Password..."
-    },
-    {
-      "label": "Captcha: ",
-      "name": "custom",
-      "type": "text",
-      "placeholder": "Fill captcha..."
     }
   ],
     "regex" : {

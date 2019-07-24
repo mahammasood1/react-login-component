@@ -4,10 +4,12 @@
 }
 
 .title {
-    font-size: 30px;
+    font-size: 35px;
+    font-family: 'Playfair Display', serif;
+    color: #3e403f;
 }
 
-.input[type="email"]{
+.input[type="email"] {
     width: 100%;
     padding: 25px;
     border-radius: 5px;
@@ -22,6 +24,7 @@
 /* .inputGroup {
     margin: 15px;
 } */
+
 /* .rmlabel {
     font-size: 12px;
 } */

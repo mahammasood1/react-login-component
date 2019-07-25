@@ -11,33 +11,48 @@ class App extends React.Component {
     alert(e.target.password.value);
   }
 
-  callAPI = (e) => {
+  getData = (e) => {
     e.preventDefault();
     alert(e.target.email.value);
     alert(e.target.password.value);
 
-    // fetch('http://localhost:3000/')
-    //   .then((result) => {
-    //     return result.json();
-    //   }).then((jsonResult) => {
-    //     console.log(jsonResult);
-    //   })
+    fetch(config.url)
+      .then(function (res) {
+        return res.json();
+      })
+      .then(function (data) {
+        console.log(data);
+      });
+  }
 
-    const data = e.target.email.value;
-    var obj = {
+  postData(e) {
+    e.preventDefault();
+    alert(e.target.email.value);
+    alert(e.target.password.value);
+
+    let username = e.target.email.value;
+    let pwd = e.target.password.value;
+
+    console.log(username);
+    console.log(pwd);
+
+    fetch(config.url, {
       method: 'POST',
-      headers: {},
-      body: data
-    };
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: username, password: pwd })
+    }).then(
+      function (response) {
 
-    fetch('http://localhost:3000/', obj).then((response) => {
-      return response.json();
-    }).then((jsonResponse) => {
-      console.log(jsonResponse);
-    });
+        response.json().then(function (data) {
 
+          console.log(data);
 
-
+        });
+      }
+    )
+      .catch(function (err) {
+        console.log('Fetch Error :-S', err);
+      });
   }
 
   render() {
@@ -47,7 +62,7 @@ class App extends React.Component {
           hideForm={false}
           fields={config}
           title="Login"
-          onSubmit={this.callAPI}
+          onSubmit={this.postData}
           hideRememberMe={false}
           hideForgotPass={false}
           buttonValidation={true}

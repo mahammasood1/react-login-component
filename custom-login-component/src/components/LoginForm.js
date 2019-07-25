@@ -137,7 +137,7 @@ class LoginForm extends React.Component {
                             buttonDisabled}`
                         }
                         type="submit"
-                        onClick={this.inputValidation} 
+                        onClick={this.inputValidation}
                     />
                     <br />
                     <div class="clearfix">

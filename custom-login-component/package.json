@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/abdulhannan8122/react-login-component#readme",
   "dependencies": {
+    "json-server": "^0.15.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^2.1.8"

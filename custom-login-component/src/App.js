@@ -7,7 +7,8 @@ class App extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    alert(e.target.email.value)
+    alert(e.target.email.value);
+    alert(e.target.password.value);
   }
 
   render() {
@@ -22,6 +23,7 @@ class App extends React.Component {
           hideRememberMe={false}
           hideForgotPass={false}
           buttonValidation={true}
+          isValidation={true}
           disableAlert={false}
           classes={{
             container: 'container',

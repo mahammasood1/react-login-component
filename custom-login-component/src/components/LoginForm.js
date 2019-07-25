@@ -14,8 +14,7 @@ class LoginForm extends React.Component {
                 email: false,
                 password: false,
                 custom: false
-            },
-            
+            }
         };
     }
 
@@ -32,8 +31,6 @@ class LoginForm extends React.Component {
     }
 
     inputValidation = () => {
-
-        
         const emailexp = this.props.fields.regex.emailRegex;
         const passwordexp = this.props.fields.regex.passwordRegex;
         const customexp = this.props.fields.regex.customRegex;
@@ -54,37 +51,34 @@ class LoginForm extends React.Component {
                 passwordRegex.test(this.state.password)
             );
 
-        
+
 
     };
 
     emailValidation = () => {
-        if(this.props.isValidation){
-        const email = this.props.fields.regex.emailRegex;
-        const emailRegex = new RegExp(email);
-        const result = emailRegex.test(this.state.email);
-        if (this.state.touched.email && !this.props.disableAlert) {
-            return result ? "" : "error-email"
+        if (this.props.isValidation) {
+            const email = this.props.fields.regex.emailRegex;
+            const emailRegex = new RegExp(email);
+            const result = emailRegex.test(this.state.email);
+            if (this.state.touched.email && !this.props.disableAlert) {
+                return result ? "" : "error-email"
+            }
+            else return;
         }
         else return;
-        }
-
-        else
-            return;
     }
 
     passValidation = () => {
-        if(this.props.isValidation){
-        const pass = this.props.fields.regex.passwordRegex;
-        const passwordRegex = new RegExp(pass)
-        const result = passwordRegex.test(this.state.password);
-        if (this.state.touched.password && !this.props.disableAlert) {
-            return result ? "" : "error-pass";
+        if (this.props.isValidation) {
+            const pass = this.props.fields.regex.passwordRegex;
+            const passwordRegex = new RegExp(pass)
+            const result = passwordRegex.test(this.state.password);
+            if (this.state.touched.password && !this.props.disableAlert) {
+                return result ? "" : "error-pass";
+            }
+            else return;
         }
         else return;
-    }
-
-    else return;
     }
 
     customValidation = () => {
@@ -102,7 +96,6 @@ class LoginForm extends React.Component {
             touched: { ...this.state.touched, [field]: true },
         });
     }
-
 
     render() {
         const buttonDisabled = this.inputValidation() ? "" : "disabled";

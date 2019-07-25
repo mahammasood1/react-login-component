@@ -18,11 +18,6 @@ class LoginForm extends React.Component {
         };
     }
 
-    handleSubmit = (e) => {
-        alert(this.state.email);
-        alert(this.state.password);
-        e.preventDefault();
-    }
 
     handleChange = (field) => (event) => {
         this.setState({
@@ -142,7 +137,7 @@ class LoginForm extends React.Component {
                             buttonDisabled}`
                         }
                         type="submit"
-                        onClick={this.inputValidation}
+                        onClick={this.inputValidation} 
                     />
                     <br />
                     <div class="clearfix">
